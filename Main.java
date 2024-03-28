@@ -2,18 +2,17 @@ import java.util.Scanner;
 
 class Main {
 
-	//1.문자 찾기
-	public int solution(String str, char t) {
-		int answer = 0;
-		str = str.toUpperCase();
-		t = Character.toUpperCase(t);
-//		for (int i=0; i<str.length(); i++) {
-//			if(str.charAt(i)==t) answer++;
-//		}
-		for(char x : str.toCharArray()) {
-			if(x == t) answer++;
+	//2.대소문자 변환
+	public String solution(String str) {
+		String answer = "";
+		char[] charArray = str.toCharArray();
+		for (char a : charArray) {
+			if (Character.isLowerCase(a)) {
+				answer += Character.toUpperCase(a);
+			} else {
+				answer += Character.toLowerCase(a);
+			}
 		}
-
 		return answer;
 	}
 
@@ -21,7 +20,6 @@ class Main {
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
 		String str = kb.next();
-		char c = kb.next().charAt(0);
-		System.out.println(T.solution(str, c));
+		System.out.println(T.solution(str));
 	}
 }
